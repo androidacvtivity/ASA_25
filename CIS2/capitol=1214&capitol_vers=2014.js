@@ -53,4 +53,7 @@ function fASA_CAP9() {
     } else {
         R910_1.val(total910.toFixed(0));
     }
+
+    // Added Rd.950=[rd.920+rd.940]
+    // 
 }
