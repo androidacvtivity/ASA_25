@@ -149,61 +149,6 @@ function set_caem_to_select(selector, valueCaem, keyCaem) {
     obj.change();
 }
 
-
-//-------------------------------- Validation ASA 23 -------------------------
-// -----------------------
-// CFP (Proprietate) - TITLU_R5_C31
-// -----------------------
-var cfp_select = [
-    { description: '10', name: 'Proprietatea Republicii Moldova' },
-    { description: '12', name: 'Proprietatea de stat' },
-    { description: '13', name: 'Proprietatea municipala' },
-    { description: '15', name: 'Proprietatea privată' },
-    { description: '16', name: 'Proprietate colectivă' },
-    { description: '17', name: 'Proprietate colectivă inclusiv colhoznică' },
-    { description: '18', name: 'Proprietatea organizaţiilor şi mişcărilor obşteşti' },
-    { description: '19', name: 'Proprietatea organizaţiilor religioase' },
-    { description: '20', name: 'Proprietatea mixtă (publică şi privată) fără participare străină' },
-    { description: '21', name: 'Proprietatea Republicii Moldova în componenţa proprietăţii mixte cu participarea investitorilor străini' },
-    { description: '23', name: 'Proprietatea statelor străine' },
-    { description: '24', name: 'Proprietatea cetăţenilor stranii, a persoanelor juridice si a persoanelor fără cetăţenie' },
-    { description: '25', name: 'Proprietatea organizaţiilor internaţionale' },
-    { description: '26', name: 'Proprietatea străina mixta (fără participarea Republicii Moldova)' },
-    { description: '27', name: 'Proprietatea investitorilor străini in componenţa proprietăţii mixte cu participarea Republicii Moldova' },
-    { description: '28', name: 'Proprietatea întreprinderilor mixte' },
-    { description: '620', name: 'Întreprinderi municipale' }
-];
-
-function set_cfp_to_select(selector, valueCfp) {
-    var obj = jQuery('#' + selector);
-    if (!obj.length) return;
-
-    if (typeof valueCfp === "undefined" || valueCfp === null) {
-        valueCfp = (Drupal.settings && Drupal.settings.mywebform && Drupal.settings.mywebform.values &&
-            typeof Drupal.settings.mywebform.values[selector] !== "undefined")
-            ? Drupal.settings.mywebform.values[selector]
-            : '';
-    }
-
-    obj.empty();
-    obj.append(jQuery("<option></option>").attr("value", '').text(''));
-
-    jQuery.each(cfp_select, function (key, value) {
-        var opt = jQuery("<option></option>")
-            .attr("value", value.description)
-            .text(value.description + ", " + value.name);
-
-        if (String(value.description) === String(valueCfp)) {
-            opt.attr("selected", "selected");
-        }
-        obj.append(opt);
-    });
-
-    obj.change();
-}
-
-//---------------------------------------------------------------------------
-
 webform.validators.asa23 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values,
         cfoj = values.TITLU_R1_C31,
