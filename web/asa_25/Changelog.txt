@@ -1,1 +1,2 @@
 1. Checking the title page  - V
+2. Removing CAP A from html 
