@@ -10,7 +10,7 @@ $(function () {
     });
 });
 
-
+//Modifica - variabilile nu sunt number dar float cu 2 zecimale
 function fASA_CAP9() {
 
     var R900_1 = $("#64_1214_111931_900_1");
@@ -20,7 +20,7 @@ function fASA_CAP9() {
     var R940_1 = $("#64_1214_111935_940_1");
     var R950_1 = $("#64_1214_111936_950_1");
     var R960_1 = $("#64_1214_111937_960_1");
-    var R970_1 = $("#64_1214_111938_970_1");
+
 
     //-------------- readOnly inputs -----------------------
     // Rd.900, Rd.910, Rd.950 sunt rezultate de autosumă
@@ -47,15 +47,15 @@ function fASA_CAP9() {
     var total950 = NVAL(R920_1) + NVAL(R940_1);
     SETVAL(R950_1, total950);
 
-    // Rd.900 = Rd.910 + Rd.920 + Rd.930 + Rd.940 + Rd.950 + Rd.960 + Rd.970
+    // Rd.900=[rd.910+rd.960]
     var total900 =
         NVAL(R910_1) +
-        NVAL(R920_1) +
-        NVAL(R930_1) +
-        NVAL(R940_1) +
-        NVAL(R950_1) +
-        NVAL(R960_1) +
-        NVAL(R970_1);
+       // NVAL(R920_1) +
+      //  NVAL(R930_1) +
+      //  NVAL(R940_1) +
+      //  NVAL(R950_1) +
+        NVAL(R960_1);
+      //  NVAL(R970_1);
 
     SETVAL(R900_1, total900);
 }

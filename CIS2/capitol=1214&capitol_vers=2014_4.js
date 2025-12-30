@@ -10,7 +10,6 @@ $(function () {
     });
 });
 
-
 function fASA_CAP9() {
 
     var R900_1 = $("#64_1214_111931_900_1");
@@ -23,20 +22,23 @@ function fASA_CAP9() {
     var R970_1 = $("#64_1214_111938_970_1");
 
     //-------------- readOnly inputs -----------------------
-    // Rd.900, Rd.910, Rd.950 sunt rezultate de autosumă
     R900_1.prop("readonly", true);
     R910_1.prop("readonly", true);
     R950_1.prop("readonly", true);
 
+    // citește float (acceptă și virgula), 2 zecimale
     function NVAL($el) {
-        var v = ($el.val() || "").toString().trim().replace(/\s/g, "").replace(",", ".");
+        var v = ($el.val() || "").toString().trim()
+            .replace(/\s/g, "")
+            .replace(",", ".");
         var n = parseFloat(v);
-        return isNaN(n) ? 0 : parseFloat(Number(n).toFixed(0));
+        return isNaN(n) ? 0 : n;
     }
 
+    // dacă e 0 sau NaN -> gol, altfel afișează cu 2 zecimale
     function SETVAL($el, v) {
-        if (!v) $el.val("");
-        else $el.val(Number(v).toFixed(0));
+        if (!v || isNaN(v)) $el.val("");
+        else $el.val(Number(v).toFixed(2));
     }
 
     // Rd.910 = Rd.920 + Rd.930
@@ -50,12 +52,13 @@ function fASA_CAP9() {
     // Rd.900 = Rd.910 + Rd.920 + Rd.930 + Rd.940 + Rd.950 + Rd.960 + Rd.970
     var total900 =
         NVAL(R910_1) +
-        NVAL(R920_1) +
-        NVAL(R930_1) +
-        NVAL(R940_1) +
-        NVAL(R950_1) +
-        NVAL(R960_1) +
-        NVAL(R970_1);
+      //  NVAL(R920_1) +
+      //  NVAL(R930_1) +
+      //  NVAL(R940_1) +
+      //  NVAL(R950_1) +
+        NVAL(R960_1) 
+        //NVAL(R970_1)
+        ;
 
     SETVAL(R900_1, total900);
 }
