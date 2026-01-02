@@ -1,2 +1,3 @@
 1. Checking the title page  - V
 2. Removing CAP A from html 
+3. Removing from vaditions - (da - Cod eroare: 0.00, Trebuie sa bifati da sau nu in Cap.A)
