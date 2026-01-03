@@ -934,21 +934,21 @@ webform.validators.asa23 = function (v, allowOverpass) {
     // }
 
     //-------------------add  --
-    // Check if the field is empty or has more than 9 digits
-    if (!values.TITLU_R3_C31 || !/^[0-9]{9}$/.test(values.TITLU_R3_C31)) {
-        webform.errors.push({
-            'fieldName': 'TITLU_R3_C31',
-            'msg': Drupal.t(' Cod eroare: A.09 Introduceți doar un număr de telefon format din 9 cifre')
-        });
-    }
+    // // Check if the field is empty or has more than 9 digits
+    // if (!values.TITLU_R3_C31 || !/^[0-9]{9}$/.test(values.TITLU_R3_C31)) {
+    //     webform.errors.push({
+    //         'fieldName': 'TITLU_R3_C31',
+    //         'msg': Drupal.t(' Cod eroare: A.09 Introduceți doar un număr de telefon format din 9 cifre')
+    //     });
+    // }
 
-    // Check if the first digit is 0
-    if (values.TITLU_R3_C31 && values.TITLU_R3_C31[0] !== '0') {
-        webform.errors.push({
-            'fieldName': 'TITLU_R3_C31',
-            'msg': Drupal.t(' Cod eroare: A.09 Prima cifră a numărului de telefon trebuie să  fie 0')
-        });
-    }
+    // // Check if the first digit is 0
+    // if (values.TITLU_R3_C31 && values.TITLU_R3_C31[0] !== '0') {
+    //     webform.errors.push({
+    //         'fieldName': 'TITLU_R3_C31',
+    //         'msg': Drupal.t(' Cod eroare: A.09 Prima cifră a numărului de telefon trebuie să  fie 0')
+    //     });
+    // }
 
 
 
